@@ -1,4 +1,4 @@
-module.exports = function (app, config) {
+module.exports = function (app, config, logger) {
     app.get('/webhook', function (req, res) {
         console.log(req.query);
         if (req.query['hub.mode'] === 'subscribe' &&
@@ -12,6 +12,7 @@ module.exports = function (app, config) {
     });
 
     app.post('/webhook', function (req, res) {
+        logger.trackEvent('WEBHOOK_POST', req.body);
         var data = req.body;
 
         // Make sure this is a page subscription
@@ -39,6 +40,7 @@ module.exports = function (app, config) {
             // will time out and we will keep trying to resend.
             res.sendStatus(200);
         }
+        res.sendStatus(400);
     });
 
     function receivedMessage(event) {
