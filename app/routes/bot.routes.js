@@ -108,10 +108,15 @@ module.exports = function (app, config, logger) {
 
                 console.log("Successfully sent generic message with id %s to recipient %s",
                     messageId, recipientId);
+                logger.trackEvent('FB_MESSAGE_SUCCESS');
             } else {
                 console.error("Unable to send message.");
                 console.error(response);
                 console.error(error);
+                logger.trackEvent('FB_MESSAGE_API', {
+                    'error': JSON.stringify(req.error),
+                    'response': JSON.stringify(req.response),
+                });
             }
         });
     }
