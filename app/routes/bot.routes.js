@@ -113,6 +113,7 @@ module.exports = function (app, config, logger) {
                 console.error("Unable to send message.");
                 console.error(response);
                 console.error(error);
+                console.error(config.fbPageAccessToken);
                 logger.trackEvent('FB_MESSAGE_API', {
                     'error': JSON.stringify(error),
                     'response': JSON.stringify(response),
