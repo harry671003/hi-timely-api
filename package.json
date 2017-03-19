@@ -1,0 +1,17 @@
+{
+  "name": "hi-timely",
+  "version": "0.0.1-beta.1",
+  "description": "Hi Timely - A reminder app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hi-timely",
+    "reminder-app",
+    "fb-messenger-bot",
+    "reminder-bot"
+  ],
+  "author": "Harry John",
+  "license": "MIT"
+}
