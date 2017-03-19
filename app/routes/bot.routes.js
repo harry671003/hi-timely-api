@@ -114,8 +114,8 @@ module.exports = function (app, config, logger) {
                 console.error(response);
                 console.error(error);
                 logger.trackEvent('FB_MESSAGE_API', {
-                    'error': JSON.stringify(req.error),
-                    'response': JSON.stringify(req.response),
+                    'error': JSON.stringify(error),
+                    'response': JSON.stringify(response),
                 });
             }
         });
