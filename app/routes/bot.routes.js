@@ -1,3 +1,5 @@
+const request = require('request');
+
 module.exports = function (app, config, logger) {
     app.get('/webhook', function (req, res) {
         console.log(req.query);
@@ -12,7 +14,11 @@ module.exports = function (app, config, logger) {
     });
 
     app.post('/webhook', function (req, res) {
-        logger.trackEvent('WEBHOOK_POST', req.body);
+        console.log(req.body);
+        logger.trackEvent('WEBHOOK_POST', {
+            'body': JSON.stringify(req.body),
+            'test': 'Hello'
+        });
         var data = req.body;
 
         // Make sure this is a page subscription

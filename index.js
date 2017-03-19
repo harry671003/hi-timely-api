@@ -7,6 +7,7 @@ const config = require('./config');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 const logger = appInsights.getClient(config.instrumentationKey);
 
